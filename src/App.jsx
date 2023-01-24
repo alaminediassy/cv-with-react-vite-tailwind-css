@@ -1,19 +1,20 @@
 import React from "react";
 import NavBar from "./Components/Navbar/NavBar";
-import Search from "./Components/SearchDiv/Search"
-import Jobs from "./Components/JobDiv/Job.jsx";
-import Value from "./Components/ValueDiv/Value.jsx";
+
 import Footer from "./Components/FooterDiv/Footer.jsx";
+import Profile from "./Components/Profile/Profile.jsx";
+import Experiences from "./Components/Experiences/Experiences.jsx";
+import Education from "./Components/Education/Education.jsx";
 
 
 const App = () => {
   return(
       <div className="w-[85%] m-auto bg-white">
           <NavBar/>
-          <Search/>
-          <Jobs/>
-          <Value/>
+          <Profile/>
           <Footer/>
+          <Experiences/>
+          <Education/>
       </div>
   )
 }
