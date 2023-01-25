@@ -11,14 +11,14 @@ const Data = [
     },
     {
         id: 2,
-        title: "BACHELOR",
+        title: "MASTER 2",
         time: "2022 - 2023",
-        desc: "Responsable de Projets informatique",
-        company: "MEWO Campus Métiers"
+        desc: "Ingénierie logicielle",
+        company: "Université Virtuelle du Sénégal"
     },
     {
         id: 3,
-        title: "MASTER 2",
+        title: "MASTER 1",
         time: "2021 - 2022",
         desc: "Ingénierie logicielle",
         company: "Université Virtuelle du Sénégal"

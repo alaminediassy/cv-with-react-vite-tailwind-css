@@ -11,7 +11,9 @@ module.exports = {
         'cardShadow' : '#f7f8f9',
         'textColor' : '#252b36',
         'textColor1': '#252525',
-        'orangeColor' : '#ea580c'
+        'orangeColor' : '#ea580c',
+        'orangeLeger': '#F79F7C',
+        'formColor' : '#013747'
       }
     },
   },
