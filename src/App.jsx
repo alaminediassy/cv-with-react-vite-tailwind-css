@@ -13,8 +13,7 @@ import NotFound from "./Components/NotFound/NotFound.jsx";
 
 const App = () => {
   return(
-          <div className="w-[85%] m-auto bg-white">
-              <NavBar/>
+          <div className="m-auto bg-white">
               <Routes>
                   <Route path="/" element={<Home/>}/>
                   <Route path="/Experiences" element={<Experiences/>}/>

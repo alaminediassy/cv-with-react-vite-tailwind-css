@@ -51,16 +51,16 @@ const Data = [
 const Experiences = () => {
     return(
 
-        <div className=" mb-[4rem] mt-[3rem]">
+        <div className="p-[3rem]">
             <h2 className="text-textColor1 text-[20px] py-[2rem] pb-[3rem] font-bold w-[400px] block">
                 Expériences Professionnelles.
             </h2>
-            <div className="flex gap-16 justify-center flex-wrap items-center py-10">
+            <div className="flex  justify-between gap-8 pb-4 flex-wrap items-center">
             {
                 Data.map(({id,image,title,time,location,desc,company}) =>{
                     return(
 
-                        <div key={id} className="group group/item w-[500px] p-[20px] bg-white rounded
+                        <div key={id} className="group group/item w-[540px] p-[20px] bg-white rounded
                   hover:bg-orangeColor shadow-lg shadow-greyIsh-400/700 hover:shadow-lg">
 
                     <span className="flex justify-between items-center gap-4">

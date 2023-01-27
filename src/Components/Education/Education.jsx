@@ -36,11 +36,11 @@ const Data = [
 
 const Education = () =>{
     return(
-        <div className=" mb-[4rem] mt-[3rem]">
-            <h2 className="text-textColor1 text-[20px] py-[2rem] pb-[3rem] font-bold w-[400px] block">
+        <div className="p-[3rem]">
+            <h2 className="text-textColor1 text-[20px] pb-[3rem] font-bold w-[400px] block">
                 Parcours et formations.
             </h2>
-            <div className="flex gap-16 justify-center flex-wrap items-center py-10">
+            <div className="flex gap-16 justify-between flex-wrap items-center">
                 {
                     Data.map(({id,image,title,time,location,desc,company}) =>{
                         return(

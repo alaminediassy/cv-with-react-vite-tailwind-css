@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link, NavLink} from "react-router-dom";
-import Experiences from "../Experiences/Experiences.jsx";
+import {BsMoonStarsFill} from "react-icons/all.js";
 
 
 const NavBar = () => {
@@ -10,11 +10,11 @@ const NavBar = () => {
 
             <div className="logoDiv">
                 <Link to="/">
-                    <h1 className="logo text-[25px] text-orangeColor cursor-pointer"><strong>Curriculum</strong>-Vitae</h1>
+                    <h1 className="logo text-[25px] text-orangeColor cursor-pointer"><strong>Alamine</strong> Graphix</h1>
                 </Link>
             </div>
 
-            <div className="menu flex gap-8">
+            <div className="menu flex items-center gap-8">
                 <NavLink to="/Project" className={({isActive}) =>{
                     return isActive ? "activeLink" : "text-[#6f6f6f]"
                 }}>
@@ -40,6 +40,12 @@ const NavBar = () => {
                 }}>
                     <li className="menuList hover:text-orangeColor">Contact</li>
                 </NavLink>
+
+                <BsMoonStarsFill className="cursor pointer text-2xl icon"/>
+                <a className="bg-orangeColor text-white px-4 py-2 rounded-lg"
+                   href=""
+                >Resume
+                </a>
             </div>
         </div>
 
