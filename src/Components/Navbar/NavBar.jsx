@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link, NavLink} from "react-router-dom";
+import Experiences from "../Experiences/Experiences.jsx";
 
 
 const NavBar = () => {
@@ -14,20 +15,25 @@ const NavBar = () => {
             </div>
 
             <div className="menu flex gap-8">
-                <NavLink to="/Projets" className={({isActive}) =>{
+                <NavLink to="/Project" className={({isActive}) =>{
                     return isActive ? "activeLink" : "text-[#6f6f6f]"
                 }}>
-                    <li className="menuList hover:text-orangeColor">Projets</li>
+                    <li className="menuList hover:text-orangeColor">Project</li>
                 </NavLink>
                 <NavLink to="/Experiences" className={({isActive}) =>{
                     return isActive ? "activeLink" : "text-[#6f6f6f]"
                 }}>
                     <li className="menuList hover:text-orangeColor">Expériences</li>
                 </NavLink>
-                <NavLink to="/Formation" className={({isActive}) =>{
+                <NavLink to="/Education" className={({isActive}) =>{
                     return isActive ? "activeLink" : "text-[#6f6f6f]"
                 }}>
                     <li className="menuList hover:text-orangeColor">Formation</li>
+                </NavLink>
+                <NavLink to="/Services" className={({isActive}) =>{
+                    return isActive ? "activeLink" : "text-[#6f6f6f]"
+                }}>
+                    <li className="menuList hover:text-orangeColor">Services</li>
                 </NavLink>
                 <NavLink to="/Contact" className={({isActive}) =>{
                     return isActive ? "activeLink" : "text-[#6f6f6f]"

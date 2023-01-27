@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
     AiFillGithub,
     AiFillInstagram, AiFillLinkedin,
@@ -6,9 +6,42 @@ import {
     HiLocationMarker,
     MdEmail
 } from "react-icons/all.js";
+import emailjs from '@emailjs/browser';
+
+const Result = () => {
+  return(
+      <p className="text-sm text-textLeger">
+          Votre Message a été envoyé avec succès, Je vous répondrai dans les plus brefa délais
+      </p>
+  )
+}
+
 
 const Contact = () => {
-  return(
+
+    const [result, setResult] = useState(false);
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs
+            .sendForm(
+                'service_3bk308t',
+                'template_ef8lgwg',
+                e.target,
+                'W1qFF9C-wTgBfbVEA'
+            )
+            .then((result) => {
+                console.log(result.text);
+            },
+                (error) => {
+                console.log(error.text);
+            }
+            );
+        e.target.reset();
+        setResult(true);
+    };
+
+    return(
       <div className="flex w-full min-h-screen justify-center items-center">
           <div className="flex flex-col md:flex-row md:space-x-6  space-y-6 md:space-y-0 bg-formColor w-full max-w-4xl
           p-8 sm:p-12 rounded-xl shadow-lg text-white overflow-hidden">
@@ -60,11 +93,14 @@ const Contact = () => {
                   <div className="absolute z-0 w-40 h-40 bg-orangeLeger rounded-full -right-28 -top-28"></div>
                   <div className="absolute z-0 w-40 h-40 bg-orangeLeger rounded-full -left-28 -bottom-16"></div>
                   <div className="relative z-10 bg-white rounded-xl shadow-lg p-8 text-gray-600 ">
-                      <form className="flex flex-col space-y-4">
+
+
+                      <form className="flex flex-col space-y-4" onSubmit={sendEmail}>
                           <div>
                               <label htmlFor="" className="text-sm">Votre nom complet</label>
                               <input
                                   type="text"
+                                  name="name"
                                   placeholder="votre nom"
                                   className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2
                                   focus:ring-orangeLeger mt-2"/>
@@ -73,6 +109,7 @@ const Contact = () => {
                               <label htmlFor="" className="text-sm">Adresse email</label>
                               <input
                                   type="text"
+                                  name="email"
                                   placeholder="Votre email"
                                   className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2
                                   focus:ring-orangeLeger mt-2"/>
@@ -81,13 +118,16 @@ const Contact = () => {
                               <label htmlFor="" className="text-sm">Message</label>
                               <textarea
                                   type="text"
+                                  name="message"
                                   placeholder="Votre message"
                                   rows="4"
                                   className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2
                                   focus:ring-orangeLeger mt-2"/><textarea/>
                           </div>
-                          <button className="inline-block self-end bg-formColor text-white font-semi-bold rounded-lg
-                          px-6 py-2 uppercase text-sm hover:bg-orangeLeger hover:text-formColor">Soumettre</button>
+                          <button  type="submit" value="send" className="inline-block self-end bg-formColor text-white font-semi-bold rounded-lg
+                          px-6 py-2 uppercase text-sm hover:bg-orangeLeger hover:text-formColor">Soumettre
+                          </button>
+                          <div className="row">{result ? <Result/> : null}</div>
                       </form>
                   </div>
               </div>

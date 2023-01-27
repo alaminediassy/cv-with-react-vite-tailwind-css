@@ -7,6 +7,8 @@ import Contact from "./Components/Contact/Contact.jsx";
 // Import react rooter
 import {Routes, Route} from "react-router-dom";
 import Home from "./Components/Home/Home.jsx";
+import Project from "./Components/Project/Project.jsx";
+import NotFound from "./Components/NotFound/NotFound.jsx";
 
 
 const App = () => {
@@ -15,9 +17,11 @@ const App = () => {
               <NavBar/>
               <Routes>
                   <Route path="/" element={<Home/>}/>
-                  <Route path="/Experience" element={<Experiences/>}/>
+                  <Route path="/Experiences" element={<Experiences/>}/>
                   <Route path="/Education" element={<Education/>}/>
                   <Route path="/Contact" element={<Contact/>}/>
+                  <Route path="/Project" element={<Project/>}/>
+                  <Route path="*" element={<NotFound/>}/>
               </Routes>
           </div>
 
