@@ -7,6 +7,7 @@ import {
     MdEmail
 } from "react-icons/all.js";
 import emailjs from '@emailjs/browser';
+import NavBar from "../Navbar/NavBar.jsx";
 
 const Result = () => {
   return(
@@ -42,6 +43,9 @@ const Contact = () => {
     };
 
     return(
+        <div>
+            <NavBar/>
+
       <div className="flex w-full min-h-screen justify-center items-center">
           <div className="flex flex-col md:flex-row md:space-x-6  space-y-6 md:space-y-0 bg-formColor w-full max-w-4xl
           p-8 sm:p-12 rounded-xl shadow-lg text-white overflow-hidden">
@@ -132,7 +136,7 @@ const Contact = () => {
                   </div>
               </div>
           </div>
-
+      </div>
       </div>
   )
 }
