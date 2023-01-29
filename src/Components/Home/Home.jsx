@@ -30,7 +30,7 @@ const Home = () => {
 
       <div className={darkMode ? 'dark' : ""}>
 
-          <!-- navigation bar section -->
+
 
       <div className="dark:bg-gray-900">
 
@@ -82,7 +82,6 @@ const Home = () => {
 
           </div>
 
-          <!-- Profile Section -->
 
           <section  className="p-[3rem]" id="section1">
 
@@ -114,7 +113,6 @@ const Home = () => {
               </div>
           </section>
 
-          <!-- About Section -->
 
           <section className="p-[3rem] pb-10" id="section2">
               <div className="justify-center items-center pb-8">
@@ -167,7 +165,6 @@ const Home = () => {
               </div>
           </section>
 
-          <!-- Skills Section -->
 
           <section className="p-[3rem] pb-10" id="section3">
               <div className="justify-center items-center pb-12 pt-12">
@@ -291,7 +288,6 @@ const Home = () => {
               </div>
           </section>
 
-          <!-- Services Section -->
 
       </div>
       </div>
