@@ -1,22 +1,36 @@
 import React, {useState} from "react";
+import About from "../About/About.jsx";
+
+// react download fil bibliothèque
+import fileDownload from "react-file-download";
 
 import {
     AiFillInstagram,
-    AiFillLinkedin,
+    AiFillLinkedin, BiSupport,
     BsGithub,
-    BsMoonStarsFill,
-    IoDocumentAttachOutline,
+    BsMoonStarsFill, HiBadgeCheck,
+    IoDocumentAttachOutline, MdOutlineWorkOutline,
     TbCertificate2
 } from "react-icons/all.js";
 import alamine from "../../Assets/alamine.png";
 import {Link, NavLink} from "react-router-dom";
 import Alam from "../../Assets/Alam.jpg"
+import laptopAlam from "../../Assets/laptopAlam.png"
 
 const Home = () => {
 
+    const handleDownload = () => {
+        fileDownload("../../../public/cvLamine.pdf", "cvLamine.pdf")
+    }
+
     const [darkMode, setDarkMode] = useState(false);
+
+
   return(
+
       <div className={darkMode ? 'dark' : ""}>
+
+          <!-- navigation bar section -->
 
       <div className="dark:bg-gray-900">
 
@@ -28,22 +42,21 @@ const Home = () => {
                   </Link>
               </div>
 
-              <div className="flex items-center gap-8">
+              <div className="flex items-center gap-8 text-textColor">
                   <NavLink to="/Home" className={({isActive}) =>{
                       return isActive ? "activeLink" : "text-[#6f6f6f]"
                   }}>
-                      <li className="menuList hover:text-orangeColor dark:text-white">Home</li>
+                      <li className="menuList hover:text-orangeColor dark:text-white">Accueil</li>
                   </NavLink>
-                  <NavLink to="/About" className={({isActive}) =>{
-                      return isActive ? "activeLink" : "text-[#6f6f6f]"
-                  }}>
-                      <li className="menuList hover:text-orangeColor dark:text-white">About</li>
-                  </NavLink>
-                  <NavLink to="/Experiences" className={({isActive}) =>{
-                      return isActive ? "activeLink" : "text-[#6f6f6f]"
-                  }}>
-                      <li className="menuList hover:text-orangeColor dark:text-white">Skills</li>
-                  </NavLink>
+
+                  <a href="#section2" className="">
+                      <li className="text-[#6f6f6f] hover:text-orangeColor dark:text-white">A Propos</li>
+                  </a>
+
+                  <a href="#section3">
+                      <li className="text-[#6f6f6f] hover:text-orangeColor dark:text-white">Compétences</li>
+                  </a>
+
                   <NavLink to="/Services" className={({isActive}) =>{
                       return isActive ? "activeLink" : "text-[#6f6f6f]"
                   }}>
@@ -69,8 +82,9 @@ const Home = () => {
 
           </div>
 
+          <!-- Profile Section -->
 
-          <section  className="p-[3rem]">
+          <section  className="p-[3rem]" id="section1">
 
               <div className="flex flex-col items-center justify-center">
                   <div className="flex gap-32 items-center pb-8 ">
@@ -99,54 +113,186 @@ const Home = () => {
                   </p>
               </div>
           </section>
-          <section className="p-[3rem]">
-              <div className="justify-center items-center pt-8">
-                  <h1 className="text-textColor text-[38px] font-medium text-center dark:text-white">
-                      About Me
+
+          <!-- About Section -->
+
+          <section className="p-[3rem] pb-10" id="section2">
+              <div className="justify-center items-center pb-8">
+                  <h1 className="text-textColor text-[32px] font-medium text-center dark:text-white">
+                      A propos de Moi
                   </h1>
-                  <p className="text-center text-textColor dark:text-white">Un petit résume</p>
+                  <p className="text-center text-[#6f6f6f] dark:text-white">Un petit résume</p>
               </div>
 
-              <div className="grid grid-cols-2 pt-20">
+              <div className="grid grid-cols-2 pt-10 mx-auto my-auto">
                   <div className="col-span-1 mx-auto my-auto">
-                      <img src={Alam} className="rounded-3xl justify-center shadow-xl"/>
+                      <img src={laptopAlam} className="mx-auto my-auto w-4/5"/>
                   </div>
 
-                  <div className="col-span-1 bg-white p-8 rounded-3xl shadow-xl">
-                      <div className="flex justify-center items-center space-x-10">
-                          <div className="bg-white text-center items-align-center shadow-lg py-8 px-6 rounded-xl leading-8">
-                              <TbCertificate2 className='text-center mx-auto'/>
-                              <h3 className="">Experiences</h3>
-                              <span className="">+ 2 ans</span>
+                  <div className="col-span-1 bg-white p-8 rounded-3xl shadow-xl ">
+                      <div className="flex justify-center items-center space-x-8">
+                          <div className="bg-white w-[180px] text-center items-align-center shadow-lg py-6 px-4 rounded-xl leading-8">
+                              <TbCertificate2 className='text-center text-xl mx-auto'/>
+                              <h3 className="pt-3">Experiences</h3>
+                              <span className="text-[12px] text-[#878484]">+ 2 ans</span>
                           </div>
-                          <div className="bg-white text-center items-align-center shadow-lg py-8 px-6 rounded-xl leading-8">
-                              <TbCertificate2 className='text-center mx-auto'/>
-                              <h3 className="">Experiences</h3>
-                              <span className="">+ 2 ans</span>
+                          <div className="bg-white w-[180px] text-center items-align-center shadow-lg py-6 px-4 rounded-xl leading-8">
+                              <MdOutlineWorkOutline className='text-center text-xl mx-auto'/>
+                              <h3 className="pt-3">Projets</h3>
+                              <span className="text-[12px] text-[#878484]">+15 projets</span>
                           </div>
-                          <div className="bg-white text-center items-align-center shadow-lg py-8 px-6 rounded-xl leading-8">
-                              <TbCertificate2 className='text-center mx-auto'/>
-                              <h3 className="">Experiences</h3>
-                              <span className="">+ 2 ans</span>
+                          <div className="bg-white w-[180px] text-center items-align-center shadow-lg py-6 px-4 rounded-xl leading-8">
+                              <BiSupport className='text-center text-xl mx-auto'/>
+                              <h3 className="pt-3">Disponibilté</h3>
+                              <span className="text-[12px] text-[#878484]">24h/24 - 7j/7</span>
                           </div>
                       </div>
-                      <div className="pt-[5rem] px-3 leading-7">
-                          <p>
-                              Il est important de noter que la classe relative permet de définir une position relative
-                              pour l'icône, ce qui est nécessaire pour utiliser la propriété z-index pour superposer
-                              l'icône par rapport aux autres éléments de la div.
+                      <div className="pt-[3rem] px-3 leading-7 text-justify">
+                          <p className="text-textColor text-sm leading-6">
+                              Je suis développeur junior front-end et designer UI/UX passionné par la création et
+                              l'innovation. Je suis capable de créer des interfaces utilisateur attrayantes et
+                              fonctionnelles.
+                              Je suis convaincu que ma motivation et mes compétences sont de la valeur ajoutée à
+                              tout projet.
                           </p>
                       </div>
-                      <div className="flex pt-[5rem] px-3">
-                          <a className="flex items-center gap-3 bg-orangeColor px-4 py-2 rounded-lg text-white" href="">Télécherger CV
+                      <div className="flex pt-[3rem] px-3">
+                          <button onClick={handleDownload} className="flex items-center gap-3 bg-orangeColor px-4 py-3 rounded-xl text-white">
+                              Télécharger mon CV
                               <IoDocumentAttachOutline/>
-                          </a>
-
+                          </button>
                       </div>
                   </div>
 
               </div>
           </section>
+
+          <!-- Skills Section -->
+
+          <section className="p-[3rem] pb-10" id="section3">
+              <div className="justify-center items-center pb-12 pt-12">
+                  <h1 className="text-textColor text-[32px] font-medium text-center dark:text-white">
+                      Compétences
+                  </h1>
+                  <p className="text-center text-[#6f6f6f] dark:text-white pb-6">Mes Compétences techniques</p>
+              </div>
+
+              <div className="grid grid-cols-2 mx-auto my-auto pb-14">
+
+                  <div className="bg-white w-[450px] h-[350px] mx-auto my-auto rounded-3xl shadow-xl justify-center
+                  items-center">
+                      <h1 className="text-center pt-12 text-textColor font-medium">Développement Front-End</h1>
+                      <div className="flex gap-20 justify-center pt-8">
+                          <div>
+                              <div className="flex gap-3 pt-4">
+                                  <HiBadgeCheck className="pt-1/2 text-xl"/>
+                                  <div className="">
+                                      <h3>HTML</h3>
+                                      <span className="text-[13px] text-[#878484]">Base</span>
+                                  </div>
+                              </div>
+                              <div className="flex gap-3 pt-4">
+                                  <HiBadgeCheck className="pt-1/2 text-xl"/>
+                                  <div className="">
+                                      <h3>CSS</h3>
+                                      <span className="text-[13px] text-[#878484]">Avancé</span>
+                                  </div>
+                              </div>
+                              <div className="flex gap-3 pt-4">
+                                  <HiBadgeCheck className="pt-1/2 text-xl"/>
+                                  <div className="">
+                                      <h3>Javascript</h3>
+                                      <span className="text-[13px] text-[#878484]">Intermédiaire</span>
+                                  </div>
+                              </div>
+                          </div>
+                          <div>
+                              <div className="flex gap-3 pt-4">
+                                  <HiBadgeCheck className="pt-1/2 text-xl"/>
+                                  <div className="">
+                                      <h3>Tailwind CSS</h3>
+                                      <span className="text-[13px] text-[#878484]">Intermédiaire</span>
+                                  </div>
+                              </div>
+                              <div className="flex gap-3 pt-4">
+                                  <HiBadgeCheck className="pt-1/2 text-xl"/>
+                                  <div className="">
+                                      <h3>Git</h3>
+                                      <span className="text-[13px] text-[#878484]">Intermédiaire</span>
+                                  </div>
+                              </div>
+                              <div className="flex gap-3 pt-4">
+                                  <HiBadgeCheck className="pt-1/2 text-xl"/>
+                                  <div className="">
+                                      <h3>React JS</h3>
+                                      <span className="text-[13px] text-[#878484]">Intermédiaire</span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                  </div>
+
+
+                  <div className="bg-white w-[450px] h-[350px] mx-auto my-auto rounded-3xl shadow-xl justify-center
+                  items-center">
+                      <h1 className="text-center pt-12 text-textColor font-medium">Développement Back-End</h1>
+                      <div className="flex gap-20 justify-center pt-8">
+                          <div>
+                              <div className="flex gap-3 pt-4">
+                                  <HiBadgeCheck className="pt-1/2 text-xl"/>
+                                  <div className="">
+                                      <h3>Java</h3>
+                                      <span className="text-[13px] text-[#878484]">Base</span>
+                                  </div>
+                              </div>
+                              <div className="flex gap-3 pt-4">
+                                  <HiBadgeCheck className="pt-1/2 text-xl"/>
+                                  <div className="">
+                                      <h3>PHP</h3>
+                                      <span className="text-[13px] text-[#878484]">intermédiare</span>
+                                  </div>
+                              </div>
+                              <div className="flex gap-3 pt-4">
+                                  <HiBadgeCheck className="pt-1/2 text-xl"/>
+                                  <div className="">
+                                      <h3>Python</h3>
+                                      <span className="text-[13px] text-[#878484]">débutant</span>
+                                  </div>
+                              </div>
+                          </div>
+                          <div>
+                              <div className="flex gap-3 pt-4">
+                                  <HiBadgeCheck className="pt-1/2 text-xl"/>
+                                  <div className="">
+                                      <h3>MySQL</h3>
+                                      <span className="text-[13px] text-[#878484]">Intermédiaire</span>
+                                  </div>
+                              </div>
+                              <div className="flex gap-3 pt-4">
+                                  <HiBadgeCheck className="pt-1/2 text-xl"/>
+                                  <div className="">
+                                      <h3>Spring Boot</h3>
+                                      <span className="text-[13px] text-[#878484]">Débutant</span>
+                                  </div>
+                              </div>
+                              <div className="flex gap-3 pt-4">
+                                  <HiBadgeCheck className="pt-1/2 text-xl"/>
+                                  <div className="">
+                                      <h3>SQL</h3>
+                                      <span className="text-[13px] text-[#878484]">Débutant</span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                  </div>
+
+              </div>
+          </section>
+
+          <!-- Services Section -->
+
       </div>
       </div>
   )

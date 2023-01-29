@@ -1,6 +1,4 @@
 import React from "react";
-import NavBar from "./Components/Navbar/NavBar";
-import Experiences from "./Components/Experiences/Experiences.jsx";
 import Education from "./Components/Education/Education.jsx";
 import Contact from "./Components/Contact/Contact.jsx";
 
@@ -16,7 +14,7 @@ const App = () => {
           <div className="m-auto bg-white">
               <Routes>
                   <Route path="/" element={<Home/>}/>
-                  <Route path="/Experiences" element={<Experiences/>}/>
+                  <Route path="/Home" element={<Home/>}/>
                   <Route path="/Education" element={<Education/>}/>
                   <Route path="/Contact" element={<Contact/>}/>
                   <Route path="/Project" element={<Project/>}/>
