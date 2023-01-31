@@ -1,23 +1,48 @@
 import React, {useState} from "react";
-import About from "../About/About.jsx";
 
 // react download fil bibliothèque
 import fileDownload from "react-file-download";
 
 import {
     AiFillInstagram,
-    AiFillLinkedin, BiSupport,
+    AiFillLinkedin, BiBriefcaseAlt, BiSupport,
     BsGithub,
-    BsMoonStarsFill, HiBadgeCheck,
+    BsMoonStarsFill, FaLaptopCode, HiBadgeCheck, HiComputerDesktop,
     IoDocumentAttachOutline, MdOutlineWorkOutline,
     TbCertificate2
 } from "react-icons/all.js";
 import alamine from "../../Assets/alamine.png";
 import {Link, NavLink} from "react-router-dom";
-import Alam from "../../Assets/Alam.jpg"
 import laptopAlam from "../../Assets/laptopAlam.png"
 
 const Home = () => {
+
+    const ServicesData =[
+        {
+            id: 1,
+            title: "UI/UX Design",
+            icons:<HiComputerDesktop/>,
+            description: "Le lorem ipsum est, en imprimerie, une suite de mots sans" +
+                "signification utilisée à\n" +
+                "titre provisoire pour calibrer une mise en FaLaptopCode"
+        },
+        {
+            id: 2,
+            title: "Web Development",
+            icons:<FaLaptopCode/>,
+            description: "Le lorem ipsum est, en imprimerie, une suite de mots sans" +
+                "signification utilisée à\n" +
+                "titre provisoire pour calibrer une mise en FaLaptopCode"
+        },
+        {
+            id: 3,
+            title: "Brand identity",
+            icons:<HiComputerDesktop/>,
+            description: "Le lorem ipsum est, en imprimerie, une suite de mots sans" +
+                "signification utilisée à\n" +
+                "titre provisoire pour calibrer une mise en FaLaptopCode"
+        }
+        ]
 
     const handleDownload = () => {
         fileDownload("../../../public/cvLamine.pdf", "cvLamine.pdf")
@@ -34,7 +59,7 @@ const Home = () => {
 
       <div className="dark:bg-gray-900">
 
-          <div className='flex justify-between items-center p-[3rem]'>
+          <div className='flex flex-wrap justify-between items-center p-[3rem]'>
 
               <div className="logoDiv">
                   <Link to="/">
@@ -42,7 +67,7 @@ const Home = () => {
                   </Link>
               </div>
 
-              <div className="flex items-center gap-8 text-textColor">
+              <div className="flex flex-wrap items-center gap-8 text-textColor">
                   <NavLink to="/Home" className={({isActive}) =>{
                       return isActive ? "activeLink" : "text-[#6f6f6f]"
                   }}>
@@ -57,11 +82,10 @@ const Home = () => {
                       <li className="text-[#6f6f6f] hover:text-orangeColor dark:text-white">Compétences</li>
                   </a>
 
-                  <NavLink to="/Services" className={({isActive}) =>{
-                      return isActive ? "activeLink" : "text-[#6f6f6f]"
-                  }}>
-                      <li className="hover:text-orangeColor dark:text-white">Services</li>
-                  </NavLink>
+                  <a href="#section4">
+                      <li className="text-[#6f6f6f] hover:text-orangeColor dark:text-white">Services</li>
+                  </a>
+
                   <NavLink to="/Portfolio" className={({isActive}) =>{
                       return isActive ? "activeLink" : "text-[#6f6f6f]"
                   }}>
@@ -85,7 +109,7 @@ const Home = () => {
 
           <section  className="p-[3rem]" id="section1">
 
-              <div className="flex flex-col items-center justify-center">
+              <div className="flex flex-wrap flex-col items-center justify-center">
                   <div className="flex gap-32 items-center pb-8 ">
                       <a href="https://github.com/alaminediassy" target="_blank" rel="nofollow noopener noreferrer">
                           <BsGithub className="text-[32px] icon dark:text-white"/>
@@ -122,7 +146,7 @@ const Home = () => {
                   <p className="text-center text-[#6f6f6f] dark:text-white">Un petit résume</p>
               </div>
 
-              <div className="grid grid-cols-2 pt-10 mx-auto my-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 pt-10 mx-auto my-auto">
                   <div className="col-span-1 mx-auto my-auto">
                       <img src={laptopAlam} className="mx-auto my-auto w-4/5"/>
                   </div>
@@ -135,7 +159,7 @@ const Home = () => {
                               <span className="text-[12px] text-[#878484]">+ 2 ans</span>
                           </div>
                           <div className="bg-white w-[180px] text-center items-align-center shadow-lg py-6 px-4 rounded-xl leading-8">
-                              <MdOutlineWorkOutline className='text-center text-xl mx-auto'/>
+                              <BiBriefcaseAlt className='text-center text-xl mx-auto'/>
                               <h3 className="pt-3">Projets</h3>
                               <span className="text-[12px] text-[#878484]">+15 projets</span>
                           </div>
@@ -171,10 +195,10 @@ const Home = () => {
                   <h1 className="text-textColor text-[32px] font-medium text-center dark:text-white">
                       Compétences
                   </h1>
-                  <p className="text-center text-[#6f6f6f] dark:text-white pb-6">Mes Compétences techniques</p>
+                  <p className="text-center text-[#6f6f6f] dark:text-white pb-6">Compétences techniques</p>
               </div>
 
-              <div className="grid grid-cols-2 mx-auto my-auto pb-14">
+              <div className="grid grid-cols-1 gap-10 sm:grid-cols-1 md:grid-cols-2 mx-auto my-auto pb-14">
 
                   <div className="bg-white w-[450px] h-[350px] mx-auto my-auto rounded-3xl shadow-xl justify-center
                   items-center">
@@ -288,6 +312,37 @@ const Home = () => {
               </div>
           </section>
 
+          <section className="p-[3rem] pb-12" id="section4">
+              <div className="justify-center items-center pb-14">
+                  <h1 className="text-textColor text-[32px] font-medium text-center dark:text-white">
+                      Services
+                  </h1>
+                  <p className="text-center text-[#6f6f6f] dark:text-white pb-6">
+                      Un meilleur design, de meilleures expériences
+                  </p>
+              </div>
+                  <div className="flex flex-wrap gap-12 justify-center ">
+                      {
+                          ServicesData.map(({id,title, icons, description}) =>{
+                              return(
+                                  <div className="bg-white h-80 w-80 shadow-xl rounded-3xl px-8 py-8 text-center">
+                                      <div className="flex justify-center text-2xl text-orangeColor mx-auto">
+                                          {icons}
+                                      </div>
+                                      <h1 className="text-[20px] font-medium pt-[20px]">{title}</h1>
+                                      <p className="pt-[20px] text-[12px] leading-6 pb-8">
+                                          {description}
+                                      </p>
+                                      <button className="bg-orangeColor py-2 px-8 rounded-full text-white">
+                                          Voir +
+                                      </button>
+                                  </div>
+                              )
+                          })
+                      }
+
+                  </div>
+          </section>
 
       </div>
       </div>
